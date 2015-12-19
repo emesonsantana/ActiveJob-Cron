@@ -7,8 +7,7 @@ module ActiveJob
 
       def initialize # :nodoc:
         super
-        after(0) do
-          debug "ActiveHob::Cron looping ..."
+        after(1) do
           loop!
         end
       end
@@ -27,14 +26,7 @@ module ActiveJob
         end
       end
 
-      # Public: Returns the current time used by the clock.
-      #
-      # Examples
-      #
-      #   gettime
-      #   # => 2013-02-04 12:00:45 +0000
-      #
-      # Returns a Time instance.
+      # Returns the current time used by the clock.
       def gettime
         ActiveJob::Cron.config.utc ? Time.now.utc : Time.now
       end

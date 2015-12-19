@@ -1,3 +1,5 @@
+require "rails"
+
 module ActiveJob
   module Cron
     module Configurable
