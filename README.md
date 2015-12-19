@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/st0012/ActiveJob-Cron.svg)](https://travis-ci.org/st0012/ActiveJob-Cron)
+[![Code Climate](https://codeclimate.com/github/st0012/ActiveJob-Cron/badges/gpa.svg)](https://codeclimate.com/github/st0012/ActiveJob-Cron)
+[![Test Coverage](https://codeclimate.com/github/st0012/ActiveJob-Cron/badges/coverage.svg)](https://codeclimate.com/github/st0012/ActiveJob-Cron/coverage)
+
 # ActiveJob::Cron
 
 This gem provides recurrent functionality for your `ActiveJob`. The usage and implementation is highly inspired by [Sidetiq](https://github.com/tobiassvn/sidetiq).
