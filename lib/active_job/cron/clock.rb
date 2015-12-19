@@ -2,6 +2,7 @@ module ActiveJob
   module Cron
     class Clock
       include Celluloid
+      include Loggable
       attr_reader :schedules
 
       def initialize # :nodoc:
@@ -36,9 +37,9 @@ module ActiveJob
       #   # => Hash of Sidetiq::Schedule objects
       #
       # Returns a hash of Sidetiq::Schedule instances.
-      def tick(tick = gettime)
+      def tick(time = gettime)
         ActiveJob::Cron.workers.each do |worker|
-          ActiveJob::Cron.handler.dispatch(worker, tick)
+          ActiveJob::Cron.handler.dispatch(worker, time)
         end
       end
 
