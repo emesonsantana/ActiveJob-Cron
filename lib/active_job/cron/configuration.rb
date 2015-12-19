@@ -2,8 +2,7 @@ module ActiveJob
   module Cron
     module Configurable
       def configure
-        @config ||= Configuration.new
-        yield(@config)
+        yield(config)
       end
 
       def config
@@ -11,11 +10,12 @@ module ActiveJob
       end
     end
     class Configuration
-      attr_accessor :resolution, :utc, :handler_pool_size, :logger
+      attr_accessor :resolution, :utc, :handler_pool_size, :logger, :preload_jobs
 
       def initialize
         @resolution = 1
         @utc = false
+        @preload_jobs = true
       end
     end
   end

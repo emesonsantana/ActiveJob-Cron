@@ -44,5 +44,6 @@ module ActiveJob
 end
 
 require "active_job/cron/supervisor"
+require "active_job/cron/railtie"
 
 ActiveJob::Cron::Supervisor.run!

@@ -4,6 +4,7 @@ describe ActiveJob::Cron::Configuration do
   it "has default value" do
     expect(subject.resolution).to eq(1)
     expect(subject.utc).to be_falsey
+    expect(subject.preload_jobs).to be_truthy
   end
 
   it "can be configured using right approach" do
