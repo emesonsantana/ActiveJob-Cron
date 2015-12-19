@@ -1,4 +1,5 @@
 require "celluloid"
+require "ice_cube"
 require "pry"
 
 require "active_job/cron/version"
@@ -24,9 +25,9 @@ module ActiveJob
     end
 
     class << self
-      def workers
-        subclasses(true).select do |worker|
-          worker.method_defined?(:perform)
+      def jobs
+        subclasses(true).select do |job|
+          job.method_defined?(:perform)
         end
       end
     end

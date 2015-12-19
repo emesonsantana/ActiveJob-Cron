@@ -13,33 +13,17 @@ module ActiveJob
         end
       end
 
-      # Public: Get the schedule for `worker`.
-      #
-      # worker - A Sidekiq::Worker class
-      #
-      # Examples
-      #
-      #   schedule_for(MyWorker)
-      #   # => Sidetiq::Schedule
-      #
-      # Returns a Sidetiq::Schedule instances.
-      def schedule_for(worker)
-        if worker.respond_to?(:schedule)
-          worker.schedule
+      # Get the schedule for `job`.
+      def schedule_for(job)
+        if job.respond_to?(:schedule)
+          job.schedule
         end
       end
 
-      # Public: Issue a single clock tick.
-      #
-      # Examples
-      #
-      #   tick
-      #   # => Hash of Sidetiq::Schedule objects
-      #
-      # Returns a hash of Sidetiq::Schedule instances.
+      # Tick a single clock.
       def tick(time = gettime)
-        ActiveJob::Cron.workers.each do |worker|
-          ActiveJob::Cron.handler.dispatch(worker, time)
+        ActiveJob::Cron.jobs.each do |job|
+          ActiveJob::Cron.handler.dispatch(job, time)
         end
       end
 
