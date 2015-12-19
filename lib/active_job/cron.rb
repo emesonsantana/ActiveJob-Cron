@@ -1,4 +1,5 @@
 require "active_job/cron/version"
+require "celluloid"
 
 module ActiveJob
   module Cron
