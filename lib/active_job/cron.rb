@@ -14,6 +14,7 @@ module ActiveJob
   module Cron
     extend Configurable
     extend Trackable
+    extend Schedulable
 
     def self.included(klass)
       super
@@ -29,6 +30,14 @@ module ActiveJob
         subclasses(true).select do |job|
           job.method_defined?(:perform)
         end
+      end
+
+      def handler
+        Supervisor.handler
+      end
+
+      def clock
+        Supervisor.clock
       end
     end
   end

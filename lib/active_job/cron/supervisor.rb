@@ -13,12 +13,10 @@ module ActiveJob
 
       class << self
         def clock
-          run! if Celluloid::Actor[:active_job_clock].nil?
           Celluloid::Actor[:active_job_clock]
         end
 
         def handler
-          run! if Celluloid::Actor[:corn_job_handler].nil?
           Celluloid::Actor[:cron_job_handler]
         end
 
