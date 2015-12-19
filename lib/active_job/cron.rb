@@ -1,6 +1,5 @@
 require "celluloid"
 require "ice_cube"
-require "pry"
 
 require "active_job/cron/version"
 require "active_job/cron/configuration"
@@ -33,11 +32,25 @@ module ActiveJob
       end
 
       def handler
-        Supervisor.handler
+        if handler = Supervisor.handler
+          handler
+        else
+          run!
+          Supervisor.handler
+        end
       end
 
       def clock
-        Supervisor.clock
+        if clock = Supervisor.clock
+          clock
+        else
+          run!
+          Supervisor.clock
+        end
+      end
+
+      def run!
+        Supervisor.run!
       end
     end
   end
@@ -45,5 +58,3 @@ end
 
 require "active_job/cron/supervisor"
 require "active_job/cron/railtie"
-
-ActiveJob::Cron::Supervisor.run!
