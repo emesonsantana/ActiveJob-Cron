@@ -4,11 +4,7 @@ module ActiveJob
       include Celluloid
 
       def dispatch(job, time)
-        schedule = job.schedule
-
-        return unless schedule.schedule_next?(time)
-
-        job.perform_later
+        job.perform_later if job.ready_to_perform?(time)
       end
     end
   end
