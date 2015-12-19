@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Stan Lo"]
   spec.email         = ["a22301613@yahoo.com.tw"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{It provides functionality for actibe_jobs being triggered recurrently.}
+  spec.description   = %q{It provides functionality for actibe_jobs being triggered recurrently.}
   spec.homepage      = "https://github.com/st0012/ActiveJob-Cron"
   spec.license       = "MIT"
 
