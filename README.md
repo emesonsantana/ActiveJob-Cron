@@ -1,8 +1,6 @@
 # ActiveJob::Cron
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/active_job/cron`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem provides recurrent functionality for your `ActiveJob`. The usage and implementation is highly inspired by [Sidetiq](https://github.com/tobiassvn/sidetiq).
 
 ## Installation
 
@@ -22,7 +20,35 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+It's very simple to use, just include `ActiveJob::Cron`, and sets your job's recurrent frequency:
+
+```ruby
+class MyJob < ActiveJob::Base
+  include ActiveJob::Cron
+  
+  recurrence { daily }
+  
+  def perform
+    # do something.....
+  end
+end
+```
+
+Or you can specify more complex recurrence like:
+
+```ruby
+class MyJob < ActiveJob::Base
+  include ActiveJob::Cron
+  
+  recurrence { weekly.day(:thursday) }
+  
+  def perform
+    # do something.....
+  end
+end
+```
+
+I uses [IceCube](http://seejohncode.com/ice_cube/) as recurrence's DSL, you can see more usages in its documentation.
 
 ## Development
 
@@ -32,7 +58,11 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/active_job-cron. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+- More feature
+- More documentation
+- More tests
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/st0012/active_job-cron. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
