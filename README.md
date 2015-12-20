@@ -54,6 +54,14 @@ end
 
 I uses [IceCube](http://seejohncode.com/ice_cube/) as recurrence's DSL, you can see more usages in its documentation.
 
+## Known Issues
+
+### Duplicate Jobs
+
+If you have multiple servers, than you will face this issue. It means that it will have as many jobs triggered as the number of application you are running. It's because that every server has it's own clock to trigger a job, and for now there is no way to sync between different servers.
+
+If anyone have a good idea to solve this, please open an issue 🙏.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
