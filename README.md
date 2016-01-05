@@ -52,7 +52,7 @@ class MyJob < ActiveJob::Base
 end
 ```
 
-I uses [IceCube](http://seejohncode.com/ice_cube/) as recurrence's DSL, you can see more usages in its documentation.
+It uses [IceCube](http://seejohncode.com/ice_cube/) as recurrence's DSL, you can see more usages in its documentation.
 
 ## Known Issues
 
