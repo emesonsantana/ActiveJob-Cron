@@ -4,7 +4,11 @@ module ActiveJob
       include Celluloid
 
       def dispatch(job, time)
-        job.perform_later if job.ready_to_perform?(time)
+        if job.ready_to_perform?(time)
+          ActiveJob::Cron::Lock.acquire("lock") do
+            job.perform_later
+          end
+        end
       end
     end
   end

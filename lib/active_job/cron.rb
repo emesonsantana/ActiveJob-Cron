@@ -8,6 +8,7 @@ require "active_job/cron/schedulable"
 require "active_job/cron/trackable"
 require "active_job/cron/loggable"
 require "active_job/cron/clock"
+require "active_job/cron/lock"
 require "active_job/cron/handler"
 
 module ActiveJob
