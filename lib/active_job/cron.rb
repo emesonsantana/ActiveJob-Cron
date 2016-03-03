@@ -1,6 +1,7 @@
 require "celluloid"
 require "ice_cube"
 
+require "active_job/cron/generators/migration_generator"
 require "active_job/cron/version"
 require "active_job/cron/configuration"
 require "active_job/cron/schedulable"
