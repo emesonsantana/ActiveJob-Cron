@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   
   spec.add_dependency "celluloid"
   spec.add_dependency "ice_cube"
-  spec.add_dependency "rails", "~> 4.2"
+  spec.add_dependency "rails", "~> 5.2"
 
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
